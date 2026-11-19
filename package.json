@@ -1,6 +1,6 @@
 {
   "name": "@textox/plugin-excalidraw",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "type": "module",
   "dependencies": {
@@ -17,7 +17,7 @@
     "react-i18next": "^16.5.8"
   },
   "devDependencies": {
-    "@textox/plugin-build": "^0.1.1",
+    "@textox/plugin-build": "^0.1.2",
     "@types/react": "^18.3.1",
     "@types/react-dom": "^18.3.1",
     "happy-dom": "^17.4.4",
