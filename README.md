@@ -32,33 +32,37 @@ dist/styles.css       # 插件样式
 `bun run pack` 在构建后再打包成插件包：
 
 ```
-dist/app.textox.excalidraw-1.0.0.zip
+dist/app.textox.excalidraw-1.0.1.zip
 ```
 
 zip 内是 `<id>/` 目录下的三个文件（`manifest.json`、`main.js`、`styles.css`），即 Textox 插件安装格式。
 
 ## 安装到 Textox
 
-产物是插件 zip，用 Textox 自带的插件 CLI 安装（在主仓库目录下运行，`plugin:cli` 走 Rust `plugin-cli`）：
+产物是插件 zip，两种安装方式。
+
+**应用内导入（推荐）**：Textox → 设置 → 插件 → 底部「插件运行时（新）」→ 「导入插件」→ 选 `dist/app.textox.excalidraw-1.0.1.zip` → 在列表里打开开关启用。
+
+**命令行**（在 Textox 主仓库目录下运行，`plugin:cli` 走 Rust `plugin-cli`）：
 
 ```sh
-# 在 Textox 主仓库里
-bun run plugin:cli -- install /path/to/app.textox.excalidraw-1.0.0.zip
-bun run plugin:cli -- enable app.textox.excalidraw     # 启用（第三方/未启用插件需手动启用）
+bun run plugin:cli -- install /path/to/app.textox.excalidraw-1.0.1.zip
+bun run plugin:cli -- enable app.textox.excalidraw     # 启用
 bun run plugin:cli -- list                             # 查看已安装
 bun run plugin:cli -- uninstall app.textox.excalidraw  # 卸载
 ```
 
-安装/启用后需重启 Textox 生效。安全模式（safe mode）下只会自动加载 `app.textox.*`，本插件属于该前缀。
+导入 ≠ 启用：装好后默认是禁用状态，需要自己打开开关。安全模式（safe mode，默认开启）下只会自动加载 `app.textox.*`，本插件属于该前缀，不受限制。
+
+设置窗口与编辑器窗口是两个独立 WebView，**启用后编辑器窗口需重启 Textox 才会加载该插件**；设置窗口内即时生效。
 
 ## 依赖说明
 
 - **`@textox/plugin-sdk`**：来自 npm（`^0.1.0`），是插件与宿主之间的契约包。构建时由 `@textox/plugin-build` 按 `SHARED_MODULES` 保持外部化，产物里只留 `import { Plugin } from "@textox/plugin-sdk"`，**不会**内联第二份契约包。
+- **`@textox/plugin-build`**：构建工具，来自 npm（`^0.1.3`），提供 `texto-plugin build|pack|dev`。它会把 `@textox/plugin-sdk` 与 `react` 等共享模块保持外部化，并在构建后检查产物没有残留未替换的 `process.env` 读取。
 - **`@excalidraw/*`**：指向同级 fork checkout 的本地路径（`file:../excalidraw/packages/*`），不是 npm 上的上游包。`package.json` 的 `overrides` 同样指向本地路径，因为 fork 的包之间用 `0.18.0` 版本互引。升级 fork 时两处要一起改。
 
-> ⚠️ **临时依赖**：构建工具 `@textox/plugin-build` **尚未发布到 npm**，当前以本地路径依赖引入：
-> `"@textox/plugin-build": "file:../../Textox/packages/plugin-build"`。
-> 这意味着构建/打包需要同机存在 Textox 主仓库 checkout（且已 `bun install`）。等 `@textox/plugin-build` 发布后，把这一行改成版本号（如 `"^0.1.0"`）即可，其余不用动。
+> 同级 fork checkout（`../excalidraw`）必须是**已构建**状态：`packages/excalidraw/dist/types` 是 fork 本地构建产物、不入 git，缺它插件的 `typecheck` 会报 `Cannot find module '@excalidraw/excalidraw/types'`。
 
 ## 契约与运行时
 
