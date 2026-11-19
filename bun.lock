@@ -18,7 +18,7 @@
         "react-i18next": "^16.5.8",
       },
       "devDependencies": {
-        "@textox/plugin-build": "file:../../Textox/packages/plugin-build",
+        "@textox/plugin-build": "^0.1.1",
         "@types/react": "^18.3.1",
         "@types/react-dom": "^18.3.1",
         "happy-dom": "^17.4.4",
@@ -389,7 +389,7 @@
 
     "@testing-library/react": ["@testing-library/react@16.2.0", "https://mirrors.cloud.tencent.com/npm/@testing-library/react/-/react-16.2.0.tgz", { "dependencies": { "@babel/runtime": "^7.12.5" }, "peerDependencies": { "@testing-library/dom": "^10.0.0", "@types/react": "^18.0.0 || ^19.0.0", "@types/react-dom": "^18.0.0 || ^19.0.0", "react": "^18.0.0 || ^19.0.0", "react-dom": "^18.0.0 || ^19.0.0" }, "optionalPeers": ["@types/react", "@types/react-dom"] }, "sha512-2cSskAvA1QNtKc8Y9VJQRv0tm3hLVgxRGDB+KYhIaPQJ1I+RHbhIXcM+zClKXzMes/wshsMVzf4B9vS4IZpqDQ=="],
 
-    "@textox/plugin-build": ["@texto/plugin-build@file:../../Textox/packages/plugin-build", { "dependencies": { "@textox/plugin-sdk": "file:../../vendor/plugin-sdk", "fflate": "^0.8.2", "vite": "^6.0.3" }, "bin": { "texto-plugin": "./src/cli.ts" } }],
+    "@textox/plugin-build": ["@textox/plugin-build@0.1.1", "", { "dependencies": { "@textox/plugin-sdk": "^0.1.0", "fflate": "^0.8.2", "vite": "^6.0.3" }, "bin": { "texto-plugin": "dist/cli.js" } }, "sha512-8lXbCnaCLZso16VpXnZgsfU8PuhkhpOCoJsjb8wbQSEEeFgyus74SUX8vXSrMqYJ94m/XPzY7khf0BeHJ+xkAg=="],
 
     "@textox/plugin-sdk": ["@textox/plugin-sdk@0.1.0", "", {}, "sha512-wNFxRZd+Gv8STsVB/nIDCcC5yYUvMmnfGaQWsN7eZ3PyeOTJW/tIwkvVNfQ/fDBSJxNmhFsGejRW/nowFye0Ww=="],
 
@@ -1554,8 +1554,6 @@
     "@testing-library/jest-dom/chalk": ["chalk@3.0.0", "https://mirrors.cloud.tencent.com/npm/chalk/-/chalk-3.0.0.tgz", { "dependencies": { "ansi-styles": "^4.1.0", "supports-color": "^7.1.0" } }, "sha512-4D3B6Wf41KOYRFdszmDqMCGq5VV/uMAB273JILmO+3jAlh8X4qDtdtgCR3fxtbLEMzSx22QdhnDcJvu2u1fVwg=="],
 
     "@testing-library/jest-dom/dom-accessibility-api": ["dom-accessibility-api@0.6.3", "https://mirrors.cloud.tencent.com/npm/dom-accessibility-api/-/dom-accessibility-api-0.6.3.tgz", {}, "sha512-7ZgogeTnjuHbo+ct10G9Ffp0mif17idi0IyWNVA/wcwcm7NPOD/WEHVP3n7n3MhXqxoIYm8d6MuZohYWIZ4T3w=="],
-
-    "@textox/plugin-build/@textox/plugin-sdk": ["@textox/plugin-sdk@file:../../Textox/vendor/plugin-sdk", {}],
 
     "ajv-formats/ajv": ["ajv@8.20.0", "https://mirrors.cloud.tencent.com/npm/ajv/-/ajv-8.20.0.tgz", { "dependencies": { "fast-deep-equal": "^3.1.3", "fast-uri": "^3.0.1", "json-schema-traverse": "^1.0.0", "require-from-string": "^2.0.2" } }, "sha512-Thbli+OlOj+iMPYFBVBfJ3OmCAnaSyNn4M1vz9T6Gka5Jt9ba/HIR56joy65tY6kx/FCF5VXNB819Y7/GUrBGA=="],
 
