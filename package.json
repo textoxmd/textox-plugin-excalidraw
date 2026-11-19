@@ -1,0 +1,45 @@
+{
+  "name": "@textox/plugin-excalidraw",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@excalidraw/common": "file:../excalidraw/packages/common",
+    "@excalidraw/element": "file:../excalidraw/packages/element",
+    "@excalidraw/excalidraw": "file:../excalidraw/packages/excalidraw",
+    "@excalidraw/fractional-indexing": "file:../excalidraw/packages/fractional-indexing",
+    "@excalidraw/laser-pointer": "file:../excalidraw/packages/laser-pointer",
+    "@excalidraw/math": "file:../excalidraw/packages/math",
+    "@tauri-apps/api": "^2.11.0",
+    "@tauri-apps/plugin-dialog": "^2.2.0",
+    "@textox/plugin-sdk": "^0.1.0",
+    "prosemirror-model": "^1.25.4",
+    "react-i18next": "^16.5.8"
+  },
+  "devDependencies": {
+    "@textox/plugin-build": "file:../../Textox/packages/plugin-build",
+    "@types/react": "^18.3.1",
+    "@types/react-dom": "^18.3.1",
+    "happy-dom": "^17.4.4",
+    "typescript": "^5.8.2",
+    "vitest": "^3.1.2"
+  },
+  "peerDependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "overrides": {
+    "@excalidraw/common": "file:../excalidraw/packages/common",
+    "@excalidraw/element": "file:../excalidraw/packages/element",
+    "@excalidraw/fractional-indexing": "file:../excalidraw/packages/fractional-indexing",
+    "@excalidraw/laser-pointer": "file:../excalidraw/packages/laser-pointer",
+    "@excalidraw/math": "file:../excalidraw/packages/math"
+  },
+  "scripts": {
+    "build": "texto-plugin build .",
+    "pack": "texto-plugin pack .",
+    "dev": "texto-plugin dev .",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run"
+  }
+}

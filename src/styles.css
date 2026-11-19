@@ -1,0 +1,4 @@
+/* 白板所需的官方样式 + 插件自有样式；构建后统一输出为 dist/styles.css */
+@import '@excalidraw/excalidraw/index.css';
+@import './embed/excalidraw.css';
+@import './excalidraw-editor.css';

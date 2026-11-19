@@ -1,0 +1,52 @@
+.texto-editor .ProseMirror .excalidraw-embed {
+  display: block;
+  margin: 8px 0;
+}
+
+.image-ref-block .excalidraw-embed {
+  cursor: pointer;
+}
+
+/* 锁定模式：白板预览是纯渲染输出，不可点击（点击不会切到源码态） */
+.texto-editor .ProseMirror[contenteditable="false"] .image-ref-block .excalidraw-embed {
+  cursor: default;
+}
+
+.excalidraw-embed {
+  position: relative;
+  overflow: auto;
+  max-height: 600px;
+  width: 100%;
+  padding: 12px;
+  box-sizing: border-box;
+  background: var(--background, #ffffff);
+  border-radius: 8px;
+}
+
+.dark .excalidraw-embed {
+  background: var(--background, #18181b);
+}
+
+.excalidraw-embed svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
+.excalidraw-embed-empty,
+.excalidraw-embed-error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 80px;
+  color: var(--text-muted, #71717a);
+  font-size: 13px;
+  text-align: center;
+}
+
+@media print {
+  .excalidraw-embed {
+    background: #ffffff !important;
+  }
+}
